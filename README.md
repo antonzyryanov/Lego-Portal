@@ -2,6 +2,55 @@
 
 Docker-based LEGO fan portal with Apache servers, PHP + Laravel web app, Go Language metrics service, RabbitMQ message broker, and dedicated SQLite data containers.
 
+## Manual Tests videos
+
+https://drive.google.com/drive/folders/1iwHvT28IdkrPp0rYppILQa97wsgVhIla?usp=sharing
+
+## Screenshots
+
+<table>
+ <tr>
+  <td><img src="screenshots/screenshot (1).jpg" alt="Screenshot 1"></td>
+  <td><img src="screenshots/screenshot (2).jpg" alt="Screenshot 2"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (3).jpg" alt="Screenshot 3"></td>
+  <td><img src="screenshots/screenshot (4).jpg" alt="Screenshot 4"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (5).jpg" alt="Screenshot 5"></td>
+  <td><img src="screenshots/screenshot (6).jpg" alt="Screenshot 6"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (7).jpg" alt="Screenshot 7"></td>
+  <td><img src="screenshots/screenshot (8).jpg" alt="Screenshot 8"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (9).jpg" alt="Screenshot 9"></td>
+  <td><img src="screenshots/screenshot (10).jpg" alt="Screenshot 10"></td>
+ </tr>
+ <tr>
+  <td><img src="screenshots/screenshot (11).jpg" alt="Screenshot 11"></td>
+  <td><img src="screenshots/screenshot (12).jpg" alt="Screenshot 12"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (13).jpg" alt="Screenshot 13"></td>
+  <td><img src="screenshots/screenshot (14).jpg" alt="Screenshot 14"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (15).jpg" alt="Screenshot 15"></td>
+  <td><img src="screenshots/screenshot (16).jpg" alt="Screenshot 16"></td>
+ </tr>
+  <tr>
+  <td><img src="screenshots/screenshot (17).jpg" alt="Screenshot 17"></td>
+  <td><img src="screenshots/screenshot (18).jpg" alt="Screenshot 18"></td>
+ </tr>
+ <tr>
+  <td><img src="screenshots/screenshot (19).jpg" alt="Screenshot 19"></td>
+  <td><img src="screenshots/screenshot (20).jpg" alt="Screenshot 20"></td>
+ </tr>
+</table>
+
 ## Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) for Windows
