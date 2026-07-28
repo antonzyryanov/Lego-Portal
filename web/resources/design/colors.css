@@ -1,0 +1,48 @@
+:root {
+  /* Brand */
+  --color-lego-yellow: #FFD500;
+  --color-lego-red: #E3000B;
+  --color-white: #FFFFFF;
+  --color-black: #1A1A1A;
+
+  /* Brand variants */
+  --color-yellow-dark: #E6BF00;
+  --color-yellow-light: #FFE566;
+  --color-red-dark: #B80009;
+  --color-red-light: #FF1A24;
+
+  /* Surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #FFF8E0;
+  --color-surface-warm: #FFF3C4;
+  --color-surface-dark: #1A1A1A;
+  --color-surface-red: #E3000B;
+  --color-surface-yellow: #FFD500;
+
+  /* Borders */
+  --color-border: #E6D48A;
+  --color-border-strong: #1A1A1A;
+  --color-border-focus: #E3000B;
+
+  /* Text */
+  --color-text: #1A1A1A;
+  --color-text-muted: #5C5340;
+  --color-text-inverse: #FFFFFF;
+  --color-text-on-yellow: #1A1A1A;
+  --color-text-on-red: #FFFFFF;
+  --color-link: #B80009;
+  --color-link-hover: #E3000B;
+
+  /* Semantic */
+  --color-success: #1A1A1A;
+  --color-success-bg: #FFE566;
+  --color-danger: #E3000B;
+  --color-danger-bg: #FFE0E2;
+  --color-warning: #E6BF00;
+  --color-warning-bg: #FFF3C4;
+  --color-info: #1A1A1A;
+  --color-info-bg: #FFF8E0;
+
+  /* Focus ring */
+  --color-focus-ring: rgba(227, 0, 11, 0.35);
+}

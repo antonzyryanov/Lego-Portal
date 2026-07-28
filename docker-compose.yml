@@ -1,0 +1,96 @@
+services:
+  sqlite_web:
+    build: ./sqlite-web
+    container_name: lego_sqlite_web
+    volumes:
+      # Host bind mount — survives compose restart / down / up / rebuild
+      - ./data/web:/data
+    restart: unless-stopped
+
+  sqlite_metrics:
+    build: ./sqlite-metrics
+    container_name: lego_sqlite_metrics
+    volumes:
+      # Host bind mount — survives compose restart / down / up / rebuild
+      - ./data/metrics:/data
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: lego_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: lego
+      RABBITMQ_DEFAULT_PASS: lego_secret
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  web:
+    build: ./web
+    container_name: lego_web
+    ports:
+      - "8080:80"
+    depends_on:
+      sqlite_web:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - ./data/web:/data
+    environment:
+      APP_NAME: "Lego Portal"
+      APP_ENV: local
+      APP_KEY: "base64:ky4iXTOKF4CuWCcNsZ+DUXxBMzO0ks4Uq1wWQ/JUCiU="
+      APP_DEBUG: "true"
+      APP_URL: "http://localhost:8080"
+      APP_LOCALE: en
+      APP_FALLBACK_LOCALE: en
+      LOG_CHANNEL: stack
+      LOG_LEVEL: debug
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /data/lego.db
+      DB_FOREIGN_KEYS: "true"
+      SESSION_DRIVER: database
+      SESSION_LIFETIME: "120"
+      CACHE_STORE: database
+      QUEUE_CONNECTION: sync
+      BROADCAST_CONNECTION: log
+      FILESYSTEM_DISK: local
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: "5672"
+      RABBITMQ_USER: lego
+      RABBITMQ_PASSWORD: lego_secret
+      RABBITMQ_VHOST: /
+      RABBITMQ_QUEUE: lego.metrics
+      RABBITMQ_URL: "amqp://lego:lego_secret@rabbitmq:5672/"
+      METRICS_SERVICE_URL: "http://metrics"
+      METRICS_API_TOKEN: "lego_metrics_token_change_me"
+      RUN_SEEDERS: "true"
+    restart: unless-stopped
+
+  metrics:
+    build: ./metrics
+    container_name: lego_metrics
+    ports:
+      - "8081:80"
+    depends_on:
+      sqlite_metrics:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - ./data/metrics:/data
+    environment:
+      METRICS_DB_PATH: /data/metrics.db
+      METRICS_API_TOKEN: "lego_metrics_token_change_me"
+      RABBITMQ_URL: "amqp://lego:lego_secret@rabbitmq:5672/"
+      RABBITMQ_QUEUE: lego.metrics
+      PORT: "8081"
+    restart: unless-stopped

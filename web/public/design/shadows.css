@@ -1,0 +1,10 @@
+:root {
+  --shadow-sm: 0 2px 0 var(--color-black);
+  --shadow-md: 0 4px 0 var(--color-black);
+  --shadow-lg: 0 8px 0 var(--color-black);
+  --shadow-lift: 0 10px 0 var(--color-black);
+  --shadow-inset: inset 0 -3px 0 rgba(26, 26, 26, 0.15);
+  --shadow-focus: 0 0 0 4px var(--color-focus-ring);
+  --shadow-red: 0 4px 0 var(--color-red-dark);
+  --shadow-yellow: 0 4px 0 var(--color-yellow-dark);
+}

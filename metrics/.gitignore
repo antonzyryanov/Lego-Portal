@@ -1,0 +1,12 @@
+.DS_Store
+*.exe
+*.test
+*.out
+/bin/
+/dist/
+/data/
+*.db
+*.db-*
+.env
+.idea/
+.vscode/
